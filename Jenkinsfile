@@ -27,8 +27,10 @@ pipeline {
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     // AWSから取得したsecret_access_key
                     // jenkinsにsecret_access_keyを登録したら下記の環境変数に自動的に登録される
-                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]){
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]){
                         sh(script: 'aws s3 cp /var/lib/jenkins/workspace/JenkinsPipeline/index.html s3://test-env-jenkins-iwakura/')
+                }
             }
         }
         stage('Test') {
